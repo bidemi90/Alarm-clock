@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        section {
+
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            background-color: wheat;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            color: cadetblue;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 2px solid cadetblue;
+
+        }
+
+        .spsce,
+        .speeee,
+        .hgdsghghs,
+        .hgegheegww,
+        .yryuryurre {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .yryuryurre {
+            height: 50px;
+            width: 200px;
+            background-color: cadetblue;
+            margin: 10px;
+            color: white;
+            font-size: 20px;
+
+        }
+
+        .spscee {
+            font-size: 30px;
+            background-color: cadetblue;
+            width: 80%;
+            padding: 10px 40px;
+            border-radius: 10px;
+            border: 1px solid cadetblue;
+            color: white;
+            font-weight: bolder;
+
+
+
+        }
+
+        .hgdsghghs input {
+            width: 80px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid cadetblue;
+            outline: 2px solid cadetblue;
+            font-size: larger;
+
+
+        }
+
+        .hgdsghghs input::placeholder {
+            color: cadetblue;
+        }
+
+
+        button {
+            padding: 15px 50px;
+            border-radius: 10px;
+            background-color: cadetblue;
+            font-size: larger;
+            color: white;
+            border: 2px solid cadetblue;
+            font-weight: bolder;
+        }
+
+        .ppoop {
+            font-size: 20px;
+            margin: 0px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="spscee">
+                <p class="ppoop">Current Time</p>
+                <div class="speeee">
+                    <p id="showww"></p>:
+                    <p id="showwwer"></p>:
+                    <p id="showwwert"></p>
+                </div>
+            </div>
+            <div class="spsce">
+                <p id="show11"></p>,&nbsp;
+                <p id="show1"></p>,&nbsp;
+                <p id="show2"></p>,&nbsp;
+                <p id="show3"></p>
+            </div>
+            <div class="yryuryurre">
+                <p id="screen">Alarm as not been set</p>
+            </div>
+            Input alarm time into the input bar
+            <div class="hgdsghghs">
+                <input type="number" id="input1" placeholder="Hours">
+                <input type="number" id="input2" placeholder="Min">
+                <input type="number" id="input3" placeholder="Sec">
+            </div>
+            <div class="hgegheegww">
+                <button onclick="sett()">
+                    SET
+                </button>
+            </div>
+            <audio id="audio" src="./audio/just dey play.mp3"></audio>
+        </section>
+    </main>
+</body>
+
+</html>
+<script>
+    let today = new Date();
+    
+
+    setInterval(() => {
+        document.getElementById("showww").innerHTML = today.toLocaleTimeString()
+        if (today == Date()) {
+
+        } else {
+            let abdullahi = new Date()
+
+            document.getElementById("showww").innerHTML = abdullahi.getHours()
+            document.getElementById("showwwer").innerHTML = abdullahi.getMinutes()
+            document.getElementById("showwwert").innerHTML = abdullahi.getSeconds()
+           
+        }
+    }, 0);
+
+
+    let audiooo = document.getElementById("audio")
+
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById("show11").innerHTML = days[today.getDay()];
+    document.getElementById("show1").innerHTML = months[today.getMonth()];
+    document.getElementById("show2").innerHTML = today.getDate()
+    document.getElementById("show3").innerHTML = today.getFullYear()
+
+    function sett() {
+
+        document.getElementById("screen").innerHTML = "Alarm Set"
+
+        setInterval(() => {
+
+
+
+            let input1 = document.getElementById('input1')
+            let input2 = document.getElementById('input2')
+            let input3 = document.getElementById('input3')
+
+
+            let abdullahi = new Date()
+            if (Number(input1.value) == abdullahi.getHours() && Number(input2.value) == abdullahi.getMinutes() && Number(input3.value) == abdullahi.getSeconds()) {
+                document.getElementById("screen").innerHTML = "Time Up"
+                audiooo.play()
+                setTimeout(() => {
+                    audiooo.pause()
+                }, 12000);
+                setTimeout(() => {
+                    document.getElementById("screen").innerHTML = "Alarm as not been set"
+                }, 17000);
+            }
+
+
+
+
+
+
+        }, 1000);
+    }
+
+
+</script>
